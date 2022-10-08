@@ -41,7 +41,8 @@
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawablePadding="12dp"
-            android:hint="Name"
+            android:fontFamily="@font/inter_tight_regular"
+            android:hint="@string/name"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="8dp"
@@ -72,7 +73,8 @@
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawablePadding="12dp"
-            android:hint="Email"
+            android:fontFamily="@font/inter_tight_regular"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:paddingEnd="8dp"
@@ -86,6 +88,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/left_custom_input"
+        android:fontFamily="@font/inter_tight_regular"
         android:padding="16.5dp"
         android:text="+254"
         android:textSize="17sp"
@@ -94,10 +97,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edtPhoneNumber"
-        android:layout_width="282dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         app:boxBackgroundColor="@color/white"
         app:boxStrokeColor="@color/white"
         app:boxStrokeWidth="0dp"
@@ -114,9 +118,9 @@
             android:autofillHints=""
             android:background="@drawable/right_custom_input"
             android:drawablePadding="12dp"
+            android:fontFamily="@font/inter_tight_regular"
             android:hint=""
             android:inputType="phone"
-            android:maxLength="4"
             android:paddingStart="12dp"
             android:paddingEnd="8dp"
             android:textColor="@color/black" />
@@ -132,6 +136,7 @@
         app:boxBackgroundColor="@color/white"
         app:boxStrokeColor="@color/white"
         app:boxStrokeWidth="0dp"
+        app:passwordToggleEnabled="true"
         app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +151,8 @@
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawablePadding="12dp"
-            android:hint="Pin"
+            android:fontFamily="@font/inter_tight_regular"
+            android:hint="@string/pin"
             android:inputType="numberPassword"
             android:maxLength="4"
             android:paddingStart="12dp"
@@ -167,7 +173,8 @@
         app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPin">
+        app:layout_constraintTop_toBottomOf="@+id/edtPin"
+        app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/etConfirmPin"
@@ -178,7 +185,8 @@
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawablePadding="12dp"
-            android:hint="ConfirmPin"
+            android:fontFamily="@font/inter_tight_regular"
+            android:hint="@string/confirm_pin"
             android:inputType="numberPassword"
             android:maxLength="4"
             android:paddingStart="12dp"
@@ -186,19 +194,30 @@
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:padding="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/inter_tight_bold"
         android:background="@drawable/button_bg"
-        android:text="Submit"
+        android:fontFamily="@font/inter_tight_bold"
+        android:text="@string/submit"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirmPin" />
+
+    <TextView
+        android:id="@+id/toLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_tight_regular"
+        android:text="@string/already_have_an_account_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
