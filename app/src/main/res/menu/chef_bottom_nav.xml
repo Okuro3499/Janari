@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="Menu"
+        android:id="@+id/chefMenu"
+      android:icon="@drawable/menu" />
+    <item android:title="New Orders"
+        android:id="@+id/chefNewOrders"
+        android:icon="@drawable/cart"/>
+    <item android:title="Confirmed"
+        android:id="@+id/ChefConfirmed"
+        android:icon="@drawable/confirmed"/>
+    <item android:title="Reports"
+        android:id="@+id/ChefReports"
+        android:icon="@drawable/reports"/>
 </menu>

@@ -14,7 +14,21 @@
         android:theme="@style/Theme.Janari"
         tools:targetApi="31">
         <activity
-            android:name=".MenuActivity"
+            android:name=".salesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".OrdersActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Waiter.waiter"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
