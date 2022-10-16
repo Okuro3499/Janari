@@ -1,45 +1,42 @@
-package com.movosoft.janari.waiter
+package com.movosoft.janari.cashier
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.movosoft.janari.R
-import com.movosoft.janari.databinding.ActivityCartBinding
+import com.movosoft.janari.databinding.ActivityCashierSalesBinding
 
-class CartActivity : AppCompatActivity() {
-    lateinit var binding: ActivityCartBinding
+class CashierSalesActivity : AppCompatActivity() {
+    lateinit var binding: ActivityCashierSalesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCartBinding.inflate(layoutInflater)
+        binding = ActivityCashierSalesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNav.selectedItemId = R.id.cart
+        binding.bottomNav.selectedItemId = R.id.sales
 
         binding.bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu -> {
-                    startActivity(
-                        Intent(
-                            applicationContext, MenuActivity::class.java
-                        )
-                    )
+                    startActivity(Intent(applicationContext, CashierMenuActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.reports -> {
-                    startActivity(
-                        Intent(
-                            applicationContext, ReportsActivity::class.java
-                        )
-                    )
+                    startActivity(Intent(applicationContext, CashierReportsActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.cart -> return@OnNavigationItemSelectedListener true
+                R.id.sales -> return@OnNavigationItemSelectedListener true
+
             }
             false
         })
+
+        binding.cardView4.setOnClickListener {
+            startActivity(Intent(applicationContext, CashierSaleDetailActivity::class.java))
+        }
     }
 }

@@ -1,33 +1,37 @@
-package com.movosoft.janari.waiter
+package com.movosoft.janari.cashier
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import android.os.Bundle
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.movosoft.janari.R
-import com.movosoft.janari.databinding.ActivityReportsBinding
-import com.movosoft.janari.waiter.adapters.FragmentAdapter
+import com.movosoft.janari.cashier.adapters.CashierFragmentAdapter
+import com.movosoft.janari.chef.ChefConfirmedActivity
+import com.movosoft.janari.chef.ChefMenuActivity
+import com.movosoft.janari.chef.ChefOrdersActivity
+import com.movosoft.janari.chef.adapters.ChefFragmentAdapter
+import com.movosoft.janari.databinding.ActivityCashierReportsBinding
+import com.movosoft.janari.databinding.ActivityChefReportsBinding
 
-class ReportsActivity : AppCompatActivity() {
-    lateinit var binding: ActivityReportsBinding
-    private var adapter: FragmentAdapter? = null
+class CashierReportsActivity : AppCompatActivity() {
+    private var adapter: CashierFragmentAdapter? = null
+    lateinit var binding: ActivityCashierReportsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityReportsBinding.inflate(layoutInflater)
+        binding = ActivityCashierReportsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Graphs"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Lists"))
 
         val fragmentManager = supportFragmentManager
-        adapter = FragmentAdapter(fragmentManager, lifecycle)
+        adapter = CashierFragmentAdapter(fragmentManager, lifecycle)
         binding.viewPager2.adapter = adapter
 
-        binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 binding.viewPager2.currentItem = tab.position
             }
@@ -36,7 +40,7 @@ class ReportsActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
 
-        binding.viewPager2.registerOnPageChangeCallback(object : OnPageChangeCallback() {
+        binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
@@ -47,24 +51,18 @@ class ReportsActivity : AppCompatActivity() {
         binding.bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu -> {
-                    startActivity(
-                        Intent(
-                            applicationContext, MenuActivity::class.java
-                        )
-                    )
+                    startActivity(Intent(applicationContext, CashierMenuActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.reports -> return@OnNavigationItemSelectedListener true
-                R.id.cart -> {
-                    startActivity(
-                        Intent(
-                            applicationContext, CartActivity::class.java
-                        )
-                    )
+
+                R.id.sales-> {
+                    startActivity(Intent(applicationContext, CashierSalesActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
+
             }
             false
         })

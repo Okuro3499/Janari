@@ -1,19 +1,21 @@
-package com.movosoft.janari.waiter
+package com.movosoft.janari.cashier
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.movosoft.janari.R
+import com.movosoft.janari.databinding.ActivityCashierMenuBinding
 import com.movosoft.janari.databinding.ActivityMenuBinding
-import com.movosoft.janari.databinding.ActivityReportsBinding
+import com.movosoft.janari.waiter.CartActivity
+import com.movosoft.janari.waiter.ReportsActivity
 
-class MenuActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMenuBinding
+class CashierMenuActivity : AppCompatActivity() {
+    lateinit var binding: ActivityCashierMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMenuBinding.inflate(layoutInflater)
+        binding = ActivityCashierMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.bottomNav.selectedItemId = R.id.menu
@@ -22,20 +24,12 @@ class MenuActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.menu -> return@OnNavigationItemSelectedListener true
                 R.id.reports -> {
-                    startActivity(
-                        Intent(
-                            applicationContext, ReportsActivity::class.java
-                        )
-                    )
+                    startActivity(Intent(applicationContext, CashierReportsActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.cart -> {
-                    startActivity(
-                        Intent(
-                            applicationContext, CartActivity::class.java
-                        )
-                    )
+                R.id.sales -> {
+                    startActivity(Intent(applicationContext, CashierSalesActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }

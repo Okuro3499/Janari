@@ -22,14 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@color/colorSecondary"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:strokeColor="@color/colorSecondary"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -118,7 +117,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/edtConfirmPin" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Menu"
+        android:id="@+id/menu"
+        android:icon="@drawable/menu"/>
+    <item android:title="Sales"
+        android:id="@+id/sales"
+        android:fontFamily="@font/inter_tight_regular"
+        android:icon="@drawable/sale"/>
+    <item android:title="Reports"
+        android:id="@+id/reports"
+        android:icon="@drawable/reports"/>
+
+</menu>
