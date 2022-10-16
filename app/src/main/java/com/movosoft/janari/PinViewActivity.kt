@@ -1,8 +1,10 @@
 package com.movosoft.janari
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.movosoft.janari.chef.ChefMenuActivity
 import com.movosoft.janari.databinding.ActivityPinViewBinding
 import java.lang.String.format
 
@@ -99,9 +101,14 @@ class PinViewActivity : AppCompatActivity() {
             } else if (binding.edtPassword.text.toString().trim().length < 4) {
                 binding.err.text = "PIN must be 4 digits!"
             }
-//            else {
-//                loginUser()
-//            }
+            else {
+                startActivity(
+                    Intent(
+                        this,
+                        ChefMenuActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                )
+            }
         }
     }
 
