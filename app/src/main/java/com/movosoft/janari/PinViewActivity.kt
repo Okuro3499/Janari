@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.movosoft.janari.cashier.CashierMenuActivity
 import com.movosoft.janari.chef.ChefMenuActivity
 import com.movosoft.janari.databinding.ActivityPinViewBinding
+import com.movosoft.janari.manager.ManagerMenuActivity
 import java.lang.String.format
 
 
@@ -16,6 +18,9 @@ class PinViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPinViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.bt0.setOnClickListener {
             binding.edtPassword.text = format("%s0", binding.edtPassword.text.toString())
@@ -97,11 +102,17 @@ class PinViewActivity : AppCompatActivity() {
 
         binding.btOk.setOnClickListener {
             if (TextUtils.isEmpty(binding.edtPassword.text.toString().trim())) {
-                binding.err.text= "Enter your PIN!"
+                binding.err.text = "Enter your PIN!"
             } else if (binding.edtPassword.text.toString().trim().length < 4) {
                 binding.err.text = "PIN must be 4 digits!"
-            }
-            else {
+            } else if (binding.edtPassword.text.toString() == "0000") {
+                startActivity(
+                    Intent(
+                        this,
+                        ManagerMenuActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                )
+            } else {
                 startActivity(
                     Intent(
                         this,
@@ -109,6 +120,14 @@ class PinViewActivity : AppCompatActivity() {
                     ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 )
             }
+        }
+        binding.forgotPin.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    CashierMenuActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            )
         }
     }
 

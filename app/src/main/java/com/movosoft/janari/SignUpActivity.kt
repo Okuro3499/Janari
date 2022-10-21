@@ -11,6 +11,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.submit.setOnClickListener {
             startActivity(

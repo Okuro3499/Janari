@@ -12,6 +12,9 @@ class NewPinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPinBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.submit.setOnClickListener {
             startActivity(

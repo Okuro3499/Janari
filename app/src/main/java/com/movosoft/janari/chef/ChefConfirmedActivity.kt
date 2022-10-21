@@ -14,6 +14,9 @@ class ChefConfirmedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChefConfirmedBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.bottomNav.selectedItemId = R.id.confirmed
 

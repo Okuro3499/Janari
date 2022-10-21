@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".manager.BranchDetailsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/nav_drawer"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/notif"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:strokeColor="@color/colorSecondary"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp">
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:stretchColumns="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:padding="3dip"
+                            android:text="Branch Name:" />
+
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="left"
+                            android:padding="3dip"
+                            android:text="Head Office" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:padding="3dip"
+                            android:text="Branch Location:" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="left"
+                            android:padding="3dip"
+                            android:text="Westlands, Nairobi" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:padding="3dip"
+                            android:text="No. of staff:" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="left"
+                            android:padding="3dip"
+                            android:text="25" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:padding="3dip"
+                            android:text="In-Charge:" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="left"
+                            android:padding="3dip"
+                            android:text="Edwin Macharia" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/md_blue_grey_400"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+                <TableLayout
+                    android:id="@+id/tableLayout1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:stretchColumns="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view">
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:padding="3dip"
+                            android:text="Staff" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Designation" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_bold"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="Date Employed" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:padding="3dip"
+                            android:text="Gideon Okuro" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="center"
+                            android:padding="3dip"
+                            android:text="Waiter" />
+
+                        <TextView
+                            android:fontFamily="@font/inter_tight_regular"
+                            android:gravity="right"
+                            android:padding="3dip"
+                            android:text="24/04/1997" />
+                    </TableRow>
+                </TableLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/viewSales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_bg"
+                    android:fontFamily="@font/inter_tight_bold"
+                    android:padding="6dp"
+                    android:text="View Sales"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/viewReports"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/viewReports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_bg"
+                    android:fontFamily="@font/inter_tight_bold"
+                    android:padding="6dp"
+                    android:text="View Reports"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/viewStaff"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewSales" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/viewStaff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginEnd="70dp"
+                    android:background="@drawable/button_bg"
+                    android:fontFamily="@font/inter_tight_bold"
+                    android:padding="6dp"
+                    android:text="View Staff"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewReports" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/manager_drawer" />
+</androidx.drawerlayout.widget.DrawerLayout>

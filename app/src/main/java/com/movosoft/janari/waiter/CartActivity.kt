@@ -14,6 +14,9 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.bottomNav.selectedItemId = R.id.cart
 

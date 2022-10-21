@@ -14,6 +14,9 @@ class CashierSalesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCashierSalesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.bottomNav.selectedItemId = R.id.sales
 

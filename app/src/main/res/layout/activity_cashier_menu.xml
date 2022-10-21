@@ -571,7 +571,6 @@ tools:context=".cashier.CashierMenuActivity">
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
-
 <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottomNav"
     android:layout_width="match_parent"

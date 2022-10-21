@@ -19,6 +19,9 @@ class ReportsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityReportsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Graphs"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Lists"))

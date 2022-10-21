@@ -17,6 +17,9 @@ class CashierMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCashierMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
 
         binding.bottomNav.selectedItemId = R.id.menu
 

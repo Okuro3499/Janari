@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/branches"
+        android:icon="@drawable/menu_blue"
+        android:title="Branches" />
+    <item
+        android:id="@+id/foodMenu"
+        android:icon="@drawable/cart"
+        android:title="Food Menu" />
+    <item
+        android:id="@+id/staff"
+        android:icon="@drawable/staff"
+        android:title="Staff" />
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/reportsblue"
+        android:title="Reports" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:title="Hotel Settings" />
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/info"
+        android:title="About App" />
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/reports"
+        android:title="Log Out" />
+</menu>
