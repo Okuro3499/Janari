@@ -1,12 +1,11 @@
-package com.movosoft.janari.Waiter
+package com.movosoft.janari
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.movosoft.janari.R
 
-class salesActivity : AppCompatActivity() {
+class ReportsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sales)
+        setContentView(R.layout.activity_reports)
     }
 }

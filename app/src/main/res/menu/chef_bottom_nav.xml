@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Menu"
-        android:id="@+id/chefMenu"
+        android:id="@+id/imenu"
       android:icon="@drawable/menu" />
     <item android:title="New Orders"
-        android:id="@+id/chefNewOrders"
+        android:id="@+id/ineworders"
         android:icon="@drawable/cart"/>
     <item android:title="Confirmed"
-        android:id="@+id/ChefConfirmed"
+        android:id="@+id/iconfirmed"
         android:icon="@drawable/confirmed"/>
     <item android:title="Reports"
-        android:id="@+id/ChefReports"
+        android:id="@+id/ireprts"
         android:icon="@drawable/reports"/>
 </menu>

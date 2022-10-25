@@ -8,5 +8,5 @@
         android:id="@+id/isales"/>
     <item android:title="Reports"
         android:icon="@drawable/reports"
-        android:id="@+id/ireports"/>
+        android:id="@+id/ireprts"/>
 </menu>

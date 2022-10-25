@@ -14,21 +14,61 @@
         android:theme="@style/Theme.Janari"
         tools:targetApi="31">
         <activity
-            android:name=".salesActivity"
+            android:name=".SalesActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".OrdersActivity"
+            android:name=".SettingsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Waiter.waiter"
+            android:name=".FoodMenuActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AboutAppActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ReportsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".StaffActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BranchActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ManagerMenuActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".PinViewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -53,13 +93,7 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
-            android:theme="@style/Theme.JanariNo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.JanariNo" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

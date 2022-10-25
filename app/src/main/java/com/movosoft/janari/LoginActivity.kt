@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this,
-                    SignUpActivity::class.java
+                    PinViewActivity::class.java
                 ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             )
         }
