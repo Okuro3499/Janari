@@ -1,4 +1,4 @@
-package com.movosoft.janari
+package com.movosoft.janari.Manager
 
 import android.content.ContentValues
 import android.content.Intent
@@ -7,51 +7,54 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
-import com.movosoft.janari.databinding.ActivitySales2Binding
+import com.movosoft.janari.*
+import com.movosoft.janari.All.ReportsActivity
+import com.movosoft.janari.Waiter.FoodMenuActivity
+import com.movosoft.janari.databinding.ActivityManagerMenuBinding
 
-class SalesActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySales2Binding
+class ManagerMenuActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityManagerMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySales2Binding.inflate(layoutInflater)
+        binding = ActivityManagerMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.nav.setOnClickListener {
+        binding.nav.setOnClickListener{
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
         binding.navView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { item ->
             Log.i(ContentValues.TAG, "onNavigationItemSelected:" + item.itemId)
             when (item.itemId) {
-                R.id.nav_hotelstaff -> {
-                    startActivity(Intent(this@SalesActivity, StaffActivity::class.java))
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.nav_reports -> {
-                    startActivity(Intent(this@SalesActivity, ReportsActivity::class.java))
+                R.id.nav_branch -> {
+                    startActivity(Intent(this@ManagerMenuActivity, BranchActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_foodmenu -> {
-                    startActivity(Intent(this@SalesActivity, FoodMenuActivity::class.java))
+                    startActivity(Intent(this@ManagerMenuActivity, ManagerMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_branch -> {
-                    startActivity(Intent(this@SalesActivity, BranchActivity::class.java))
+                R.id.nav_hotelstaff -> {
+                    startActivity(Intent( this@ManagerMenuActivity, StaffActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.nav_reports -> {
+                    startActivity(Intent(this@ManagerMenuActivity, ReportsActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_hotelsettings -> {
-                    startActivity(Intent(this@SalesActivity, SettingsActivity::class.java))
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.nav_logout -> {
-                    startActivity(Intent(this@SalesActivity, LoginActivity::class.java))
+                    startActivity(Intent(this@ManagerMenuActivity, SettingsActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_aboutapp -> {
-                    startActivity(Intent(this@SalesActivity, AboutAppActivity::class.java))
+                    startActivity(Intent(this@ManagerMenuActivity, AboutAppActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.nav_logout -> {
+                    startActivity(Intent(this@ManagerMenuActivity, LoginActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-            Log.i(ContentValues.TAG, "onNavigationItemSelected:" +item.itemId)
+            Log.i(ContentValues.TAG, "onnavigationItemSelected:nothing clicked")
             false
         })
     }

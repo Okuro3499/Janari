@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Menu"
-        android:id="@+id/imenu"
+        android:id="@+id/nav_menu"
         android:icon="@drawable/menu"/>
     <item android:title="New Orders"
-        android:id="@+id/ineworders"
+        android:id="@+id/nav_neworders"
         android:icon="@drawable/cart"/>
     <item android:title="Confirmed"
-        android:id="@+id/iconfirmed"
+        android:id="@+id/nav_confirmed"
         android:icon="@drawable/confirmed"/>
     <item android:title="Reports"
-        android:id="@+id/ireprts"
+        android:id="@+id/nav_reprts"
         android:icon="@drawable/reports"/>
 
 

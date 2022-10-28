@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Waiter.OrdersActivity">
+    tools:context=".Waiter.FoodMenuActivity">
+
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -47,99 +49,94 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="12dp"
         android:background="@drawable/search_background"
-        android:hint="Search"
-        android:padding="8dp"
         android:drawableEnd="@drawable/search"
+        android:hint="Search"
+        android:minHeight="48dp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="125dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="17dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/castominput_background"
-                android:padding="12dp"
-                app:layout_constraintEnd_toStartOf="@+id/ugalimatumbo"
-                app:layout_constraintHorizontal_bias="0.205"
-                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/item_image"
+                android:layout_width="68dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/custom_input"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/ugalimatumbo"
+                android:id="@+id/item_title"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginEnd="230dp"
-                android:text="Ugali Matumbo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="25dp"
+                android:text="     Ugali Matumbo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/item_image"
+                android:layout_marginStart="16dp"
+                android:textSize="17sp"/>
 
             <TextView
-                android:id="@+id/itemwaiter"
+                android:id="@+id/item_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="187dp"
-                android:text="Waiter: Gedion Okuro"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toBottomOf="@+id/ugalimatumbo" />
-
-            <TextView
-                android:id="@+id/itemservings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="187dp"
-                android:text="Servings: 1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toBottomOf="@+id/itemwaiter" />
-
-            <TextView
-                android:id="@+id/itemstatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="187dp"
-                android:text="Status: Pending Confirmation"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toBottomOf="@+id/itemservings" />
+                android:text="Waiter:           Gideon okuro"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@+id/item_image"
+                app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
             <TextView
-                android:id="@+id/ordertime"
+                android:id="@+id/item_detail1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="187dp"
-                android:text="Order time: 10:20"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toBottomOf="@+id/itemstatus" />
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="0dp"
+                android:text="Status:            Paid"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@+id/item_image"
+                app:layout_constraintTop_toBottomOf="@+id/item_detail" />
+
+            <TextView
+                android:id="@+id/item_detail2"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="0dp"
+                android:text="Order Time:   10:20"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@+id/item_image"
+                app:layout_constraintTop_toBottomOf="@+id/item_detail1" />
+
+
+
+            <TextView
+                android:id="@+id/item_detail3"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="0dp"
+                android:text="Amount:         1500"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@+id/item_image"
+                app:layout_constraintTop_toBottomOf="@+id/item_detail2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -149,15 +146,20 @@
 
     </androidx.cardview.widget.CardView>
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
+        android:id="@+id/bottomView"
         android:layout_height="50dp"
         app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
         android:background="@drawable/bottom_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation"/>
+        app:menu="@menu/salesbotton_menu_nav"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

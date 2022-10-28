@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:title="Menu"
     android:icon="@drawable/menu"
-    android:id="@+id/imenu"/>
+    android:id="@+id/nav_foodmenu"/>
     <item android:title="Sales"
         android:icon="@drawable/sales"
-        android:id="@+id/isales"/>
+        android:id="@+id/nav_sales"/>
     <item android:title="Reports"
         android:icon="@drawable/reports"
-        android:id="@+id/ireprts"/>
+        android:id="@+id/nav_reports"/>
 </menu>

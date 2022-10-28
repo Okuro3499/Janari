@@ -139,12 +139,14 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
+            android:id="@+id/bottomView"
             android:layout_height="50dp"
             app:itemTextColor="@color/white"
             android:background="@drawable/bottom_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:itemIconTint="@color/white"
             app:menu="@menu/salesbotton_menu_nav"/>
 
 

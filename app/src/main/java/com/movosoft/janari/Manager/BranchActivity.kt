@@ -1,4 +1,4 @@
-package com.movosoft.janari
+package com.movosoft.janari.Manager
 
 import android.content.ContentValues
 import android.content.Intent
@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.view.GravityCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.movosoft.janari.*
+import com.movosoft.janari.All.ReportsActivity
 import com.movosoft.janari.databinding.ActivityBranchBinding
 
 class BranchActivity : AppCompatActivity() {
@@ -15,6 +18,26 @@ class BranchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBranchBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.bottomView.setOnNavigationItemSelectedListener (BottomNavigationView.OnNavigationItemSelectedListener{
+            item ->
+            when (item.itemId){
+                R.id.nav_foodmenu -> {
+                    startActivity(Intent(this@BranchActivity, ManagerMenuActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.nav_reports -> {
+                    startActivity(Intent(this@BranchActivity, ReportsActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.nav_sales ->{
+                    startActivity(Intent(this@BranchActivity, SalesActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+
+            }
+            false
+        })
         binding.nav.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -26,7 +49,7 @@ class BranchActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_foodmenu -> {
-                    startActivity(Intent(this@BranchActivity, FoodMenuActivity::class.java))
+                    startActivity(Intent(this@BranchActivity, ManagerMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_hotelsettings -> {

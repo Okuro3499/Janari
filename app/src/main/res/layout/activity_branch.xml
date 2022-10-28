@@ -126,6 +126,7 @@
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:itemTextColor="@color/white"
@@ -133,7 +134,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/salesbotton_menu_nav"/>
+            app:menu="@menu/salesbotton_menu_nav"
+            app:itemIconTint="@color/white"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

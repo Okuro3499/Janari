@@ -3,7 +3,6 @@ package com.movosoft.janari
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.movosoft.janari.Waiter.MenuActivity
 import com.movosoft.janari.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {

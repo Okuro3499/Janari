@@ -1,4 +1,4 @@
-package com.movosoft.janari
+package com.movosoft.janari.Manager
 
 import android.content.ContentValues
 import android.content.Intent
@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
+import com.movosoft.janari.*
+import com.movosoft.janari.All.ReportsActivity
+import com.movosoft.janari.Waiter.FoodMenuActivity
 import com.movosoft.janari.databinding.ActivityStaffBinding
 
 class StaffActivity : AppCompatActivity() {
@@ -38,7 +41,7 @@ class StaffActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_foodmenu -> {
-                    startActivity(Intent(this@StaffActivity, FoodMenuActivity::class.java))
+                    startActivity(Intent(this@StaffActivity, ManagerMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_hotelsettings -> {
@@ -54,6 +57,7 @@ class StaffActivity : AppCompatActivity() {
             Log.i(ContentValues.TAG, "onNavigationItemSelected:" + item.itemId)
             false
         })
+
 
     }
 }
