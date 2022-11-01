@@ -69,64 +69,113 @@
             android:layout_marginTop="125dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TextView
-                    android:id="@+id/foodsold"
+                    android:id="@+id/item_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="203dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginEnd="187dp"
                     android:text="Ugali Matumbo"
+                    android:textSize="17sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/item_waiter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Waiter:"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
                 <TextView
-                    android:id="@+id/itemwaiter"
+                    android:id="@+id/item_waiter1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginEnd="203dp"
-                    android:text="waiter:           Gideon Okuro"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="96dp"
+                    android:layout_marginEnd="36dp"
+                    android:text="Gideon okuro"
+                    android:textSize="17sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/foodsold" />
+                    app:layout_constraintStart_toEndOf="@+id/item_waiter"
+                    app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
                 <TextView
-                    android:id="@+id/itemstatus"
+                    android:id="@+id/item_status"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:text="Status:           Paid"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="137dp"
+                    android:text="Status:"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/item_status1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/itemwaiter" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_waiter" />
 
                 <TextView
-                    android:id="@+id/ordertime"
+                    android:id="@+id/item_status1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:text="Order Time:  10:20"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/itemstatus" />
+                    android:layout_height="25dp"
+                    android:layout_marginStart="136dp"
+                    android:text="Paid"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toEndOf="@+id/item_status"
+                    app:layout_constraintTop_toBottomOf="@+id/item_waiter" />
+
 
                 <TextView
-                    android:id="@+id/itmeamount"
+                    android:id="@+id/item_ordertime"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:text="Amount:        1500"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Order Time:"
+                    android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ordertime" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_status" />
+
+                <TextView
+                    android:id="@+id/item_ordertime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="101dp"
+                    android:layout_marginEnd="135dp"
+                    android:text="10:20"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/item_ordertime"
+                    app:layout_constraintTop_toBottomOf="@+id/item_status" />
+
+                <TextView
+                    android:id="@+id/item_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="125dp"
+                    android:text="Amount:"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/item_amount1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_ordertime" />
+
+                <TextView
+                    android:id="@+id/item_amount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="125dp"
+                    android:text="1500"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toEndOf="@+id/item_amount"
+                    app:layout_constraintTop_toBottomOf="@+id/item_ordertime" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -135,7 +184,6 @@
 
 
         </androidx.cardview.widget.CardView>
-
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"

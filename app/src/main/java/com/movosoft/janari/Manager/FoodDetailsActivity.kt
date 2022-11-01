@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.movosoft.janari.R
 
-class NewFoodActivity : AppCompatActivity() {
+class FoodDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_food)
+        setContentView(R.layout.activity_food_details)
     }
 }

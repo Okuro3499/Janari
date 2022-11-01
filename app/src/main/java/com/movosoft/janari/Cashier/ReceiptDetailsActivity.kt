@@ -1,12 +1,12 @@
-package com.movosoft.janari.Manager
+package com.movosoft.janari.Cashier
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.movosoft.janari.R
 
-class NewFoodActivity : AppCompatActivity() {
+class ReceiptDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_food)
+        setContentView(R.layout.activity_receipt_details)
     }
 }
