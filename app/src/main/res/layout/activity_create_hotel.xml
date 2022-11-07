@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateHotelActivity">
+    tools:context=".activities.CreateHotelActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edtWebsiteUrl"
+                android:id="@+id/edtHotelEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/edtHotelName">
 
                 <EditText
-                    android:id="@+id/etWebsiteUrl"
+                    android:id="@+id/etHotelEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -84,12 +84,13 @@
                     android:background="@drawable/custom_input"
                     android:drawablePadding="12dp"
                     android:fontFamily="@font/inter_tight_regular"
-                    android:hint="Website Url (Optional)"
+                    android:hint="Hotel Email"
                     android:inputType="textUri"
                     android:paddingStart="12dp"
                     android:paddingEnd="8dp"
                     android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edtHotelPhoneNumber"
@@ -103,7 +104,7 @@
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtWebsiteUrl">
+                app:layout_constraintTop_toBottomOf="@+id/edtHotelEmail">
 
                 <EditText
                     android:id="@+id/etHotelPhoneNumber"
@@ -116,7 +117,7 @@
                     android:drawablePadding="12dp"
                     android:fontFamily="@font/inter_tight_regular"
                     android:hint="Hotel Contact No."
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:paddingStart="12dp"
                     android:paddingEnd="8dp"
                     android:textColor="@color/black" />
@@ -138,7 +139,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/edtHotelPhoneNumber">
 
                 <EditText
-                    android:id="@+id/etCounty"
+                    android:id="@+id/etAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -147,16 +148,15 @@
                     android:background="@drawable/custom_input"
                     android:drawablePadding="12dp"
                     android:fontFamily="@font/inter_tight_regular"
-                    android:hint="County"
+                    android:hint="Address"
                     android:inputType="text"
-                    android:maxLength="4"
                     android:paddingStart="12dp"
                     android:paddingEnd="8dp"
                     android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edtTown"
+                android:id="@+id/edtTotalBranches"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -171,7 +171,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/edtCounty">
 
                 <EditText
-                    android:id="@+id/etTown"
+                    android:id="@+id/etTotalBranches"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -180,9 +180,9 @@
                     android:background="@drawable/custom_input"
                     android:drawablePadding="12dp"
                     android:fontFamily="@font/inter_tight_regular"
-                    android:hint="Town"
-                    android:inputType="text"
-                    android:maxLength="4"
+                    android:hint="Total Branches"
+                    android:inputType="number"
+                    android:maxLength="3"
                     android:paddingStart="12dp"
                     android:paddingEnd="8dp"
                     android:textColor="@color/black" />
@@ -197,7 +197,7 @@
                 android:fontFamily="@font/inter_tight_regular"
                 android:text="Upload hotel logo (optional)"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtTown" />
+                app:layout_constraintTop_toBottomOf="@+id/edtTotalBranches" />
 
             <ImageView
                 android:id="@+id/imageView2"

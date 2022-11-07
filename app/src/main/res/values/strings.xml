@@ -4,7 +4,9 @@
     <string name="login">Login</string>
     <string name="pin">Pin</string>
     <string name="confirm_pin">Confirm Pin</string>
-    <string name="name">Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <!-- TODO: Remove or change this placeholder text -->
