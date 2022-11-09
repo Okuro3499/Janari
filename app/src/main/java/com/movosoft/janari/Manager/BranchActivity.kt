@@ -19,6 +19,10 @@ class BranchActivity : AppCompatActivity() {
         binding = ActivityBranchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.addbranch.setOnClickListener {
+            startActivity(Intent(this@BranchActivity, NewBranchActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+        }
+
         binding.bottomView.setOnNavigationItemSelectedListener (BottomNavigationView.OnNavigationItemSelectedListener{
             item ->
             when (item.itemId){

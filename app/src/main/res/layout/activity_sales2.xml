@@ -102,12 +102,10 @@
                     android:id="@+id/item_waiter1"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="96dp"
-                    android:layout_marginEnd="36dp"
+                    android:layout_marginStart="216dp"
                     android:text="Gideon okuro"
                     android:textSize="17sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/item_waiter"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
                 <TextView
@@ -115,10 +113,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="137dp"
                     android:text="Status:"
                     android:textSize="17sp"
-                    app:layout_constraintEnd_toStartOf="@+id/item_status1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_waiter" />
 
@@ -126,10 +122,10 @@
                     android:id="@+id/item_status1"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="136dp"
+                    android:layout_marginStart="216dp"
                     android:text="Paid"
                     android:textSize="17sp"
-                    app:layout_constraintStart_toEndOf="@+id/item_status"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_waiter" />
 
 
@@ -147,12 +143,10 @@
                     android:id="@+id/item_ordertime1"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="101dp"
-                    android:layout_marginEnd="135dp"
+                    android:layout_marginStart="216dp"
                     android:text="10:20"
                     android:textSize="17sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/item_ordertime"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_status" />
 
                 <TextView
@@ -160,10 +154,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="125dp"
                     android:text="Amount:"
                     android:textSize="17sp"
-                    app:layout_constraintEnd_toStartOf="@+id/item_amount1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_ordertime" />
 
@@ -171,10 +163,10 @@
                     android:id="@+id/item_amount1"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="125dp"
+                    android:layout_marginStart="216dp"
                     android:text="1500"
                     android:textSize="17sp"
-                    app:layout_constraintStart_toEndOf="@+id/item_amount"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_ordertime" />
 
 
