@@ -21,7 +21,7 @@ class OrdersActivity : AppCompatActivity() {
                     startActivity(Intent(this@OrdersActivity,ReportsActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_foodmenu -> {
+                R.id.nav_menu -> {
                     startActivity(Intent(this@OrdersActivity, ChefMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }

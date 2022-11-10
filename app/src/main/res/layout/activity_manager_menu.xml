@@ -118,6 +118,7 @@
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:itemTextColor="@color/white"

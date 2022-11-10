@@ -21,7 +21,7 @@ class ConfirmedActivity : AppCompatActivity() {
                     startActivity(Intent(this@ConfirmedActivity, ConfirmedActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_foodmenu ->{
+                R.id.nav_menu ->{
                     startActivity(Intent(this@ConfirmedActivity, ChefMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }

@@ -16,7 +16,7 @@ class CartActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.bottomView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when(item.itemId){
-                R.id.nav_foodmenu -> {
+                R.id.nav_menu -> {
                     startActivity(Intent(this@CartActivity, FoodMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }

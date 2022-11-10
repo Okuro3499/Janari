@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.view.GravityCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.movosoft.janari.*
 import com.movosoft.janari.All.ReportsActivity
@@ -18,6 +19,25 @@ class ManagerMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityManagerMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.bottomView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener{item ->
+        when(item.itemId){
+            R.id.nav_reports->{
+                startActivity(Intent(this@ManagerMenuActivity,ReportsActivity::class.java))
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_menu->{
+                startActivity(Intent(this@ManagerMenuActivity,ManagerMenuActivity::class.java))
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_sales->{
+                startActivity(Intent(this@ManagerMenuActivity,SalesActivity::class.java))
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+
+        })
         binding.nav.setOnClickListener{
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }

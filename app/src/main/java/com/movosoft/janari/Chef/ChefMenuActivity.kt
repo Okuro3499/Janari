@@ -17,15 +17,19 @@ class ChefMenuActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.bottomView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when(item.itemId){
+                R.id.nav_confirmed->{
+                    startActivity(Intent(this@ChefMenuActivity, ConfirmedActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
                 R.id.nav_reports -> {
                     startActivity(Intent(this@ChefMenuActivity, ReportsActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_foodmenu -> {
+                R.id.nav_menu -> {
                     startActivity(Intent(this@ChefMenuActivity, ChefMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_cart -> {
+                R.id.nav_neworders -> {
                     startActivity(Intent(this@ChefMenuActivity, CartActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }

@@ -20,7 +20,7 @@ class FoodMenuActivity : AppCompatActivity() {
                     startActivity(Intent(this@FoodMenuActivity, ReportsActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_foodmenu -> {
+                R.id.nav_menu -> {
                     startActivity(Intent(this@FoodMenuActivity, FoodMenuActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
