@@ -10,7 +10,7 @@ import retrofit2.http.POST
 
 
 interface Api {
-    @POST("Login")
+    @POST("Janari/Security/Login")
     fun Login(
        @Body userRequest: UserRequest
     ):Call<UserResponse>

@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         binding.login.setOnClickListener {
+
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPin.text.toString().trim()
 
@@ -45,12 +46,13 @@ class LoginActivity : AppCompatActivity() {
                 binding.etPin.error = "Password required"
             }
             else{
-                Login()
+                login( email, password)
             }
         }
     }
 
-    fun Login() {
+    fun login(email: String, password: String) {
+
         val sharedPreferences: SharedPreferences =
             getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
 
@@ -63,8 +65,10 @@ class LoginActivity : AppCompatActivity() {
 
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
+
         val retro = RetrofitClient.getRetroClientInstance().create(Api::class.java)
-        retro.Login(UserRequest()).enqueue(object : Callback<UserResponse> {
+        val userRequest = UserRequest(Email=email, password = password)
+        retro.Login(userRequest).enqueue(object : Callback<UserResponse> {
             override fun onResponse(
                 call: Call<UserResponse>,
                 response: Response<UserResponse>
@@ -81,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 else{
-                       Toast.makeText(applicationContext, response.body()?.message,Toast.LENGTH_LONG).show()
+                       Toast.makeText(applicationContext, "${response.body()?.message}",Toast.LENGTH_LONG).show()
                     }
             }
 
