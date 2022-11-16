@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
@@ -49,9 +50,9 @@ class ChefOrdersActivity : AppCompatActivity() {
 
         binding.cardView4.setOnClickListener{
             val dialog = Dialog(this@ChefOrdersActivity)
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setCancelable(false)
             dialog.setContentView(R.layout.confirm_order_dialog)
+            dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             val close = dialog.findViewById(R.id.close) as ImageView
             val yesBtn = dialog.findViewById(R.id.confirm) as AppCompatButton
             val noBtn = dialog.findViewById(R.id.cancel) as AppCompatButton

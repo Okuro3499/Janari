@@ -41,14 +41,12 @@ class LoginActivity : AppCompatActivity() {
 
         apiClient = ApiClient
         sessionManager = SessionManager(this)
-        val sharedPreferences: SharedPreferences =
-            getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
 
         binding.login.setOnClickListener {
-//            if(!binding.etEmail.text.toString().trim().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex())) {
-//                binding.etEmail.error = "Kindly enter a valid email!"
-//            } else
-            if (TextUtils.isEmpty(binding.etPin.text.toString().trim())) {
+            if(!binding.etEmail.text.toString().trim().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex())) {
+                binding.etEmail.error = "Kindly enter a valid email!"
+            } else if (TextUtils.isEmpty(binding.etPin.text.toString().trim())) {
                 binding.etPin.error = "Kindly enter pin"
             } else {
                 val progressDialog = ProgressDialog(this@LoginActivity)

@@ -1,5 +1,7 @@
 package com.movosoft.janari.api
 
+import com.movosoft.janari.models.branchModel.BranchSetup
+import com.movosoft.janari.models.branchModel.BranchSetupResponse
 import com.movosoft.janari.models.userModel.UserLogin
 import com.movosoft.janari.models.userModel.UserLoginResponse
 import com.movosoft.janari.models.hotelModel.HotelSetUp
@@ -19,4 +21,7 @@ interface ApiService {
 
     @POST("Janari/Administration/AddEditUser")
     fun createUser(@Body createUserModel: CreateUserModel?): Call<CreateUserResponseModel>
+
+    @POST("Janari/Administration/BranchSetup")
+    fun createBranch(@Body branchSetUp: BranchSetup?): Call<BranchSetupResponse>
 }
