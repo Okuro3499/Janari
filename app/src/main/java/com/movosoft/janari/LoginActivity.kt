@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.movosoft.janari.Cashier.MenuActivity
 import com.movosoft.janari.Chef.ChefMenuActivity
 import com.movosoft.janari.Data.UserRequest
 import com.movosoft.janari.Data.UserResponse
+import com.movosoft.janari.Manager.ManagerMenuActivity
 import com.movosoft.janari.Services.Api
 import com.movosoft.janari.Services.RetrofitClient
+import com.movosoft.janari.Waiter.FoodMenuActivity
 import com.movosoft.janari.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -76,13 +79,52 @@ class LoginActivity : AppCompatActivity() {
 
                 if (response.isSuccessful) {
                     progressDialog.dismiss()
+                    when(response.body()!!.role){
+                        "CHF" ->{
+                            val intent =Intent(this@LoginActivity, ChefMenuActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                        }
+                        "CSH"->{
+                            val intent = Intent(this@LoginActivity, MenuActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                        }
+                        "WTR" ->{
+                            val intent = Intent(this@LoginActivity, FoodMenuActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                        }
+                        "MGR" ->{
+                            val intent = Intent(this@LoginActivity, ManagerMenuActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+
+                        }
+                        "ADM" ->{
+                            val intent=Intent(this@LoginActivity, PinViewActivity::class.java ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                        }
+
+                    }
+
 
                     Log.e("Done", "onSuccess: ${response.body()}")
                     editor.putString("tokenID", response.body()!!.tokenID)
+                    editor.putString("userID", response.body()!!.userID)
+                    editor.putString("lastName", response.body()!!.lastName)
+                    editor.putString("firstName", response.body()!!.firstName)
+                    editor.putString("userName", response.body()!!.userName)
+                    editor.putString("companyID", response.body()!!.companyID)
+                    editor.putString("companyName", response.body()!!.companyName)
+                    editor.putString("branchID", response.body()!!.branchId)
+                    editor.putString("industryType", response.body()!!.industryType)
+                    editor.putString("appReleaseVersion", response.body()!!.appReleaseVersion)
+                    editor.putString("role", response.body()!!.role)
+                    editor.putString("tokenID", response.body()!!.tokenID)
+                    editor.putString("tokenExpiry", response.body()!!.tokenExpiry)
+                    editor.putString("statusCode", response.body()!!.statusCode)
+                    editor.putString("message", response.body()!!.message)
+                    editor.putString("error", response.body()!!.error)
                     editor.apply()
 
-                    val intent =Intent(this@LoginActivity, ChefMenuActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
+
                 }
                 else{
                        Toast.makeText(applicationContext, "${response.body()?.message}",Toast.LENGTH_LONG).show()

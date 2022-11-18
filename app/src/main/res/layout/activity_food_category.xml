@@ -7,16 +7,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".Waiter.ManagerMenu">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:context=".Manager.FoodCategoryActivity">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,44 +37,161 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="330dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="26dp"
+                        android:src="@drawable/ic_baseline_add_circle_outline_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/nav"
+                        app:layout_constraintTop_toTopOf="parent" />
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <TextView
-                    android:id="@+id/newbranch"
+                    android:id="@+id/newitem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="311dp"
-                    android:text="New Branch"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="327dp"
+                    android:text="New Item"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/branchname"
+                    android:id="@+id/foodname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginTop="8dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:boxStrokeWidth="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/newbranch">
+                    app:layout_constraintTop_toBottomOf="@+id/newitem">
+
                     <EditText
-                        android:id="@+id/branchname1"
+                        android:id="@+id/foodname1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/custom_input"
-                        android:hint="Branch Name"
+                        android:background="@drawable/nav_line_backgroung"
+                        android:hint="Food Name"
+                        android:paddingStart="8dp"
                         android:paddingEnd="8dp"
                         android:fontFamily="@font/inter_tight_regular"
-                        android:paddingStart="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:autofillHints="" />
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/foodcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/foodname">
+
+                    <EditText
+                        android:id="@+id/foodcode1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nav_line_backgroung"
+                        android:hint="Food Code"
+                        android:paddingEnd="8dp"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/inter_tight_regular"
+                        android:inputType="text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/foodcode">
+
+                    <EditText
+                        android:id="@+id/category1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nav_line_backgroung"
+                        android:hint="Category/Discription"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:fontFamily="@font/inter_tight_regular"
+                        android:inputType="text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/categoryid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/category">
+
+                    <EditText
+                        android:id="@+id/categoryid1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nav_line_backgroung"
+                        android:hint="Category ID"
+                        android:paddingEnd="8dp"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/inter_tight_regular"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/subcategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categoryid">
+
+                    <EditText
+                        android:id="@+id/subcategory1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nav_line_backgroung"
+                        android:hint="Merchant Name"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/inter_tight_regular"
+                        android:paddingEnd="8dp"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,211 +199,56 @@
                     android:id="@+id/merchantid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/branchname">
+                    app:layout_constraintTop_toBottomOf="@+id/subcategory">
+
                     <EditText
                         android:id="@+id/merchantid1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/nav_line_backgroung"
                         android:hint="Merchant ID"
-                        android:fontFamily="@font/inter_tight_regular"
-                        android:paddingStart="8dp"
                         android:paddingEnd="8dp"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/inter_tight_regular"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent" />
+
 
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/operatorid"
+                    android:id="@+id/isadd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    app:boxBackgroundColor="@color/white"
                     android:layout_marginTop="8dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:boxStrokeWidth="0dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/merchantid">
-                    <EditText
-                        android:id="@+id/operatorid1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_tight_regular"
-                        android:background="@drawable/nav_line_backgroung"
-                        android:hint="Operation ID"
-                        android:paddingEnd="8dp"
-                        android:paddingStart="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="8dp"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/operatorid">
 
                     <EditText
-                        android:id="@+id/address1"
+                        android:id="@+id/isadd1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/nav_line_backgroung"
-                        android:hint="Address"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        android:fontFamily="@font/inter_tight_regular"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/branchlocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="8dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:boxStrokeWidth="0dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/address">
-
-                    <EditText
-                        android:id="@+id/branchlocation1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/nav_line_backgroung"
-                        android:fontFamily="@font/inter_tight_regular"
-                        android:hint="Branch Location"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/branchlocation" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <TextView
-                    android:id="@+id/staffincharge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
-                    android:paddingStart="8dp"
-                    android:text="Staff In-Charge"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/branchlocation" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/staffincharge1"
-                    android:layout_width="match_parent"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/nav_line_backgroung"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/staffincharge"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/numberoftables"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/staffincharge1">
-                    <EditText
-                        android:id="@+id/numberoftables1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/nav_line_backgroung"
-                        android:hint="Number of Tables"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-                <TextView
-                    android:id="@+id/selectstaff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Select staff"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/numberoftables" />
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:id="@+id/selectstaff1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/nav_line_backgroung"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/selectstaff"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/issadd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/selectstaff1" >
-                    <EditText
-                        android:id="@+id/issadd1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:autofillHints=""
                         android:background="@drawable/nav_line_backgroung"
                         android:hint="Is Add"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
                         android:fontFamily="@font/inter_tight_regular"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:autofillHints="" />
+                        app:layout_constraintStart_toStartOf="parent" />
+
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -299,7 +256,7 @@
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="170dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="151dp"
                     android:background="@drawable/button_bg"
                     android:text="Submit"
@@ -307,30 +264,32 @@
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/issadd" />
+                    app:layout_constraintTop_toBottomOf="@+id/isadd" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bottom_background"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/nav_line_backgroung"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/salesbotton_menu_nav" />
+                app:layout_constraintStart_toStartOf="parent">
 
 
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomView"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bottom_background"
+                    app:itemIconTint="@color/white"
+                    app:itemTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:menu="@menu/salesbotton_menu_nav" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <com.google.android.material.navigation.NavigationView

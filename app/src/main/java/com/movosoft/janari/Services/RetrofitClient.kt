@@ -20,4 +20,5 @@ object RetrofitClient{
             .client(client.build())
             .build()
     }
+
 }

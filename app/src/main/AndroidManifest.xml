@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.movosoft.janari">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,8 +14,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Janari"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".Manager.SubCategoryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Manager.FoodCategoryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Manager.CreateHotelActivity"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".Cashier.ReceiptDetailsActivity"
             android:exported="false">
@@ -32,9 +58,7 @@
         </activity>
         <activity
             android:name=".Manager.BranchDetailsActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Manager.StaffDetailsActivity"
             android:exported="false">
@@ -51,24 +75,21 @@
         </activity>
         <activity
             android:name=".Manager.NewFoodActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".Manager.NewStaffActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Manager.NewBranchActivity"
-            android:exported="true">
-
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Cashier.CashierSalesActivity"
             android:exported="false">
@@ -159,7 +180,6 @@
         <activity
             android:name=".Manager.ManagerMenuActivity"
             android:exported="true" />
-
         <activity
             android:name=".PinViewActivity"
             android:exported="false">
@@ -178,18 +198,12 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.JanariNo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:theme="@style/Theme.JanariNo" />
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
             android:theme="@style/Theme.JanariNo" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" />

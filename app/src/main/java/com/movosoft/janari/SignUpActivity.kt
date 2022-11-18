@@ -1,5 +1,6 @@
 package com.movosoft.janari
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,11 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toLogin.setOnClickListener {
+
+        binding.btnsubmit.setOnClickListener {
             startActivity(
                 Intent(
-                    this,
+                    this@SignUpActivity,
                     LoginActivity::class.java
                 ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             )
