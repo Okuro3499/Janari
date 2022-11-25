@@ -21,32 +21,25 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_tight_bold"
-        android:text="New Food"
+        android:text="New Sub-Category"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <Spinner
-        android:id="@+id/etBranch"
+        android:id="@+id/spinCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:autofillHints=""
         android:background="@drawable/custom_input"
-        android:fontFamily="@font/inter_tight_regular"
-        android:hint="Food Sub Category"
-        android:inputType="text"
-        android:paddingStart="12dp"
-        android:paddingEnd="8dp"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edtFood"
+        android:id="@+id/edtSubCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -58,10 +51,10 @@
         app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBranch">
+        app:layout_constraintTop_toBottomOf="@+id/spinCategory">
 
         <EditText
-            android:id="@+id/etFood"
+            android:id="@+id/etSubCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -69,76 +62,7 @@
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:fontFamily="@font/inter_tight_regular"
-            android:hint="Food Name"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="8dp"
-            android:textColor="@color/black" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Spinner
-        android:id="@+id/etFoodCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:autofillHints=""
-        android:background="@drawable/custom_input"
-        android:fontFamily="@font/inter_tight_regular"
-        android:hint="Food Category"
-        android:inputType="text"
-        android:paddingStart="12dp"
-        android:paddingEnd="8dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtFood" />
-
-    <Spinner
-        android:id="@+id/etFoodSubCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:autofillHints=""
-        android:background="@drawable/custom_input"
-        android:fontFamily="@font/inter_tight_regular"
-        android:hint="Food Sub Category"
-        android:inputType="text"
-        android:paddingStart="12dp"
-        android:paddingEnd="8dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFoodCategory" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edtFoodPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:boxBackgroundColor="@color/white"
-        app:boxStrokeColor="@color/white"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFoodSubCategory">
-
-        <EditText
-            android:id="@+id/etFoodPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:autofillHints=""
-            android:background="@drawable/custom_input"
-            android:fontFamily="@font/inter_tight_regular"
-            android:hint="Food Price"
+            android:hint="Sub-Category Name"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="8dp"
@@ -154,7 +78,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtFoodPrice">
+        app:layout_constraintTop_toBottomOf="@+id/edtSubCategory">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submit"
@@ -182,4 +106,5 @@
             android:textColor="@color/redWarning"
             android:textSize="18sp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

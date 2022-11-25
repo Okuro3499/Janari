@@ -9,14 +9,32 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/mvlogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/mvlogo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Janari"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.manager.FoodCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.manager.FoodSubCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activities.manager.ManagerReportsActivity"
             android:exported="false">
@@ -131,61 +149,49 @@
         </activity>
         <activity
             android:name=".activities.waiter.ReportsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JanariNo">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.waiter.CartActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JanariNo">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.waiter.MenuActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JanariNo">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.PinViewActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JanariNo">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.NewPinActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JanariNo">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.JanariNo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.SignUpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JanariNo">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

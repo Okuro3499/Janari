@@ -144,8 +144,7 @@ class PinViewActivity : AppCompatActivity() {
                 val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
                 val loginInfo = UserLogin(
-                    sharedPreferences.getString("email", ""),
-                    binding.edtPassword.text.toString()
+                    sharedPreferences.getString("email", ""), binding.edtPassword.text.toString()
                 )
                 apiClient.getApiService(this).loginUser(loginInfo).enqueue(object :
                     Callback<UserLoginResponse> {

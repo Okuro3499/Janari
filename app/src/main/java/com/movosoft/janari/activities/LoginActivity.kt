@@ -114,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
                                 "ADM" -> {
                                     val intent = Intent(
                                         this@LoginActivity,
-                                        PinViewActivity::class.java
+                                        ManagerMenuActivity::class.java
                                     ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                     startActivity(intent)
                                 }

@@ -2,9 +2,9 @@ package com.movosoft.janari.activities.manager
 
 import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.movosoft.janari.R
@@ -32,8 +32,12 @@ class StaffActivity : AppCompatActivity() {
                     startActivity(Intent(this@StaffActivity, BranchActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.foodMenu -> {
-                    startActivity(Intent(this@StaffActivity, ManagerMenuActivity::class.java))
+                R.id.foodCategory -> {
+                    startActivity(Intent(this@StaffActivity, FoodCategoryActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.foodSubCategory -> {
+                    startActivity(Intent(this@StaffActivity, FoodSubCategoryActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.staff -> {

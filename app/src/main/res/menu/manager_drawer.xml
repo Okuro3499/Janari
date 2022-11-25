@@ -5,9 +5,14 @@
         android:icon="@drawable/menu_blue"
         android:title="Branches" />
     <item
-        android:id="@+id/foodMenu"
+        android:id="@+id/foodCategory"
         android:icon="@drawable/cart"
-        android:title="Food Menu" />
+        android:title="Food Category" />
+
+    <item
+        android:id="@+id/foodSubCategory"
+        android:icon="@drawable/cart"
+        android:title="Food Sub-Category" />
     <item
         android:id="@+id/staff"
         android:icon="@drawable/staff"

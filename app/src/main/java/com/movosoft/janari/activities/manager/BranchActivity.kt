@@ -53,7 +53,7 @@ class BranchActivity : AppCompatActivity() {
             dialog.setContentView(R.layout.branch_dialog)
             dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-            val branchName = dialog.findViewById(R.id.etBranchName) as EditText
+            val branchName = dialog.findViewById(R.id.etCategory) as EditText
             val branchAddress = dialog.findViewById(R.id.etBranchAddress) as EditText
             val submitBtn = dialog.findViewById(R.id.submit) as AppCompatButton
             val noBtn = dialog.findViewById(R.id.cancel) as AppCompatButton
@@ -123,8 +123,22 @@ class BranchActivity : AppCompatActivity() {
                     startActivity(Intent(this@BranchActivity, BranchActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.foodMenu -> {
-                    startActivity(Intent(this@BranchActivity, ManagerMenuActivity::class.java))
+                R.id.foodCategory -> {
+                    startActivity(
+                        Intent(
+                            this@BranchActivity,
+                            FoodCategoryActivity::class.java
+                        )
+                    )
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.foodSubCategory -> {
+                    startActivity(
+                        Intent(
+                            this@BranchActivity,
+                            FoodSubCategoryActivity::class.java
+                        )
+                    )
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.staff -> {

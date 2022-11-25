@@ -57,8 +57,22 @@ class ManagerSalesActivity : AppCompatActivity() {
                     startActivity(Intent(this@ManagerSalesActivity, BranchActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.foodMenu -> {
-                    startActivity(Intent(this@ManagerSalesActivity, ManagerMenuActivity::class.java))
+                R.id.foodCategory -> {
+                    startActivity(
+                        Intent(
+                            this@ManagerSalesActivity,
+                            FoodCategoryActivity::class.java
+                        )
+                    )
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.foodSubCategory -> {
+                    startActivity(
+                        Intent(
+                            this@ManagerSalesActivity,
+                            FoodSubCategoryActivity::class.java
+                        )
+                    )
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.staff -> {

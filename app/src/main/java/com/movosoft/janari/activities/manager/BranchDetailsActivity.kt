@@ -33,8 +33,22 @@ class BranchDetailsActivity : AppCompatActivity() {
                     startActivity(Intent(this@BranchDetailsActivity, BranchActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.foodMenu -> {
-                    startActivity(Intent(this@BranchDetailsActivity, ManagerMenuActivity::class.java))
+                R.id.foodCategory -> {
+                    startActivity(
+                        Intent(
+                            this@BranchDetailsActivity,
+                            FoodCategoryActivity::class.java
+                        )
+                    )
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.foodSubCategory -> {
+                    startActivity(
+                        Intent(
+                            this@BranchDetailsActivity,
+                            FoodSubCategoryActivity::class.java
+                        )
+                    )
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.staff -> {
