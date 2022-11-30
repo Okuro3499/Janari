@@ -3,7 +3,6 @@ package com.movosoft.janari.activities.manager
 import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -16,20 +15,20 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.GravityCompat
-import com.android.volley.DefaultRetryPolicy
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.movosoft.janari.R
+import com.movosoft.janari.activities.manager.adapters.AdapterSubCategory
 import com.movosoft.janari.api.ApiClient
 import com.movosoft.janari.databinding.ActivityFoodSubCategoryBinding
+import com.movosoft.janari.models.GetCategory_SubCategory
+import com.movosoft.janari.models.categoryModel.Categories
+import com.movosoft.janari.models.categoryModel.GetCategoryResponse
+import com.movosoft.janari.models.subCategoryModel.GetSubCategoryResponse
 import com.movosoft.janari.models.subCategoryModel.SubCategorySetup
 import com.movosoft.janari.models.subCategoryModel.SubCategorySetupResponse
-import org.json.JSONArray
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,8 +39,7 @@ class FoodSubCategoryActivity : AppCompatActivity() {
     lateinit var binding: ActivityFoodSubCategoryBinding
     private val sharedPrefFile = "sharedPrefData"
     private lateinit var apiClient: ApiClient
-    var categoryList: ArrayList<String> = ArrayList()
-    var categoryAdapter: ArrayAdapter<String>? = null
+    var categoryId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -151,6 +149,12 @@ class FoodSubCategoryActivity : AppCompatActivity() {
             val submitBtn = dialog.findViewById(R.id.submit) as AppCompatButton
             val noBtn = dialog.findViewById(R.id.cancel) as AppCompatButton
 
+            val bNameArr: String? = sharedPreferences.getString("CATEGORY_ARR", "")
+            val tempStr = bNameArr!!.replace("[", "").replace("]", "")
+            val bNameT: Array<String?> = tempStr.split(",").toTypedArray()
+            val adapter: ArrayAdapter<String?> = ArrayAdapter<String?>(this@FoodSubCategoryActivity, android.R.layout.simple_dropdown_item_1line, bNameT)
+            category.adapter = adapter
+
 //            val url = ""
 //            val queue: RequestQueue = Volley.newRequestQueue(applicationContext)
 //            val jsonObject = JSONObject()
@@ -201,7 +205,11 @@ class FoodSubCategoryActivity : AppCompatActivity() {
 //            jsonObjectRequest.retryPolicy = DefaultRetryPolicy(60000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
 //            queue.add(jsonObjectRequest)
 
-            submitBtn.setOnClickListener {
+            submitBtn.setOnClickListener { it ->
+                val ct: String = category.selectedItem.toString().trim { it <= ' ' }
+                val c = ct.split(":").toTypedArray()
+                categoryId = c[0]
+
                 if(category.selectedItem.toString().trim() == "") {
                     Toast.makeText(this@FoodSubCategoryActivity, "Kindly choose category", Toast.LENGTH_SHORT).show();
                 } else if  (TextUtils.isEmpty(subCategoryName.text.toString().trim())) {
@@ -215,7 +223,7 @@ class FoodSubCategoryActivity : AppCompatActivity() {
 
                     val subCategoryInfo = SubCategorySetup(
                         sharedPreferences.getString("companyID", "")?.toInt(),
-                        sharedPreferences.getString("categoryID", "")?.toInt(),
+                        categoryId!!.toInt(),
                         subCategoryName.text.toString(),
                         1
                     )
@@ -254,5 +262,92 @@ class FoodSubCategoryActivity : AppCompatActivity() {
             noBtn.setOnClickListener { dialog.dismiss() }
             dialog.show()
         }
+
+        getSubCategories()
+        getCategories()
+
+    }
+
+    private fun getSubCategories() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        apiClient = ApiClient
+
+//        val progressDialog = ProgressDialog(this@FooddSubCategoryActivity)
+//        progressDialog.setCancelable(false) // set cancelable to false
+//        progressDialog.setMessage("Fetching Categories...") // set message
+//        progressDialog.show()
+
+//        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+
+        binding.shimmerLayout.startShimmer();
+        val getSubCategoryInfo = GetCategory_SubCategory(
+            sharedPreferences.getString("companyID", "")?.toInt(),
+        )
+        apiClient.getApiService(this).getFoodSubCategories(getSubCategoryInfo).enqueue(object : Callback<GetSubCategoryResponse> {
+            override fun onResponse(call: Call<GetSubCategoryResponse>, response: Response<GetSubCategoryResponse>) {
+                if (response.isSuccessful) {
+//                    progressDialog.dismiss()
+                    binding.recyclerView.apply {
+                        binding.etSearch.visibility = View.VISIBLE
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
+                        //use this in Gari
+                        val linearLayoutManager = LinearLayoutManager(this@FoodSubCategoryActivity)
+                        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+//                        {or VERTICAL}
+                        binding.recyclerView.layoutManager = linearLayoutManager
+                        //upto here
+                        adapter = response.body()?.let { AdapterSubCategory(it.data, context) }
+                        Log.d("data", response.body()?.data.toString())
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GetSubCategoryResponse>, t: Throwable) {
+                Log.e("Gideon", "onFailure: ${t.message}")
+            }
+        })
+    }
+
+    fun getCategories() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        apiClient = ApiClient
+
+        val getCategoryInfo = GetCategory_SubCategory(
+            sharedPreferences.getString("companyID", "")?.toInt(),
+        )
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+
+        apiClient.getApiService(this).getFoodCategories(getCategoryInfo).enqueue(object : Callback<GetCategoryResponse> {
+            override fun onResponse(call: Call<GetCategoryResponse>, response: Response<GetCategoryResponse>) {
+                if (response.isSuccessful) {
+                    Log.d("data", response.body().toString())
+//                    val cateNamesArr = ArrayList<String>()
+//                    val jsonArray: List<Categories>? = response.body().data
+//                    if (jsonArray.toString().isNotEmpty()) {
+//                        if (jsonArray != null) {
+//                            for (i in jsonArray.indices) {
+//                                val jsonObjectI = jsonArray[i]
+//
+//                                val tempCategory = response.body().data.Categories.categoryID + ":" + response.body()?.data.description                                    )
+//                                cateNamesArr.add(tempCategory)
+//                            }
+//                        }
+//                        editor.putString("CATEGORY_ARR", cateNamesArr.toString())
+
+
+//                    }
+
+                }
+            }
+
+            override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
+                Log.e("Gideon", "onFailure: ${t.message}")
+            }
+        })
+    }
+
+    private fun restartApp() {
+        recreate()
     }
 }

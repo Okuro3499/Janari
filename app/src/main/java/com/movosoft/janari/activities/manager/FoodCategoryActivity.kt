@@ -9,20 +9,25 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.movosoft.janari.R
+import com.movosoft.janari.activities.manager.adapters.AdapterCategory
 import com.movosoft.janari.api.ApiClient
 import com.movosoft.janari.databinding.ActivityFoodCategoryBinding
 import com.movosoft.janari.models.categoryModel.CategorySetup
 import com.movosoft.janari.models.categoryModel.CategorySetupResponse
+import com.movosoft.janari.models.GetCategory_SubCategory
+import com.movosoft.janari.models.categoryModel.GetCategoryResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,6 +44,8 @@ class FoodCategoryActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
+
+        getCategories()
 
         val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
         apiClient = ApiClient
@@ -170,7 +177,10 @@ class FoodCategoryActivity : AppCompatActivity() {
                                     val ok = successDialog.findViewById(R.id.submit) as AppCompatButton
 
                                     successText.text = "Category created successfully"
-                                    ok.setOnClickListener { successDialog.dismiss() }
+                                    ok.setOnClickListener {
+                                        successDialog.dismiss()
+                                        restartApp()
+                                    }
 
                                     successDialog.show()
                                     Log.e("Gideon", "onSuccess: ${response.body()}")
@@ -190,5 +200,55 @@ class FoodCategoryActivity : AppCompatActivity() {
             noBtn.setOnClickListener { dialog.dismiss() }
             dialog.show()
         }
+    }
+
+    fun getCategories() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        apiClient = ApiClient
+
+//        val progressDialog = ProgressDialog(this@FoodCategoryActivity)
+//        progressDialog.setCancelable(false) // set cancelable to false
+//        progressDialog.setMessage("Fetching Categories...") // set message
+//        progressDialog.show()
+
+//        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+
+        binding.shimmerLayout.startShimmer();
+        val getCategoryInfo = GetCategory_SubCategory(
+            sharedPreferences.getString("companyID", "")?.toInt(),
+        )
+        apiClient.getApiService(this).getFoodCategories(getCategoryInfo).enqueue(object : Callback<GetCategoryResponse> {
+            override fun onResponse(call: Call<GetCategoryResponse>, response: Response<GetCategoryResponse>) {
+                if (response.isSuccessful) {
+//                    progressDialog.dismiss()
+                    binding.recyclerView.apply {
+                        binding.etSearch.visibility = View.VISIBLE
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
+                        //use this in Gari
+                        val linearLayoutManager = LinearLayoutManager(this@FoodCategoryActivity)
+                        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+//                        {or VERTICAL}
+                        binding.recyclerView.layoutManager = linearLayoutManager
+                        //upto here
+//                        val carsAdapter = AdapterCategory(response.body()!!.data, this@MainActivity)
+                        adapter = response.body()?.let { AdapterCategory(it.data, context) }
+                        Log.d("data", response.body()?.data.toString())
+                    }
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
+//                progressDialog.dismiss()
+
+                Log.e("Gideon", "onFailure: ${t.message}")
+            }
+        })
+    }
+
+    private fun restartApp() {
+        recreate()
     }
 }

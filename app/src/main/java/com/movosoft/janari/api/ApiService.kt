@@ -1,13 +1,16 @@
 package com.movosoft.janari.api
 
+import com.movosoft.janari.models.GetCategory_SubCategory
 import com.movosoft.janari.models.branchModel.BranchSetup
 import com.movosoft.janari.models.branchModel.BranchSetupResponse
 import com.movosoft.janari.models.categoryModel.CategorySetup
 import com.movosoft.janari.models.categoryModel.CategorySetupResponse
+import com.movosoft.janari.models.categoryModel.GetCategoryResponse
 import com.movosoft.janari.models.foodModel.FoodSetup
 import com.movosoft.janari.models.foodModel.FoodSetupResponse
 import com.movosoft.janari.models.hotelModel.HotelSetUp
 import com.movosoft.janari.models.hotelModel.HotelSetUpResponse
+import com.movosoft.janari.models.subCategoryModel.GetSubCategoryResponse
 import com.movosoft.janari.models.subCategoryModel.SubCategorySetup
 import com.movosoft.janari.models.subCategoryModel.SubCategorySetupResponse
 import com.movosoft.janari.models.userModel.CreateUserModel
@@ -39,5 +42,12 @@ interface ApiService {
 
     @POST("Janari/Inventory/AddEditProduct")
     fun createFoodItem(@Body foodSetup: FoodSetup?): Call<FoodSetupResponse>
+
+    @POST("Janari/Inventory/GetCategory")
+    fun getFoodCategories(@Body getCategory: GetCategory_SubCategory?): Call<GetCategoryResponse>
+
+    @POST("Janari/Inventory/GetSubcategory")
+    fun getFoodSubCategories(@Body getSubCategory: GetCategory_SubCategory?): Call<GetSubCategoryResponse>
+
 
 }

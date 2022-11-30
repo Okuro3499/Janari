@@ -78,7 +78,7 @@ class ManagerMenuActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.foodCategory -> {
-                    startActivity(Intent(this@ManagerMenuActivity, FoodSubCategoryActivity::class.java))
+                    startActivity(Intent(this@ManagerMenuActivity, FoodCategoryActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.foodSubCategory -> {
